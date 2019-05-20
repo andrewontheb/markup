@@ -1,0 +1,110 @@
+@mixin triangle-link ($dr:'right',$bg: #000,$bw:7px 0 7px 7px) {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  border-style: solid;
+  border-width: #{$bw};
+  @if ($dr == 'left') {
+    left: 5px;
+    border-color: transparent #{$bg} transparent transparent;
+  } @else {
+    left: -10px;
+    border-color: transparent transparent transparent #{$bg};
+  }
+  transition: all .22s ease;
+}
+
+@mixin styled-checkbox(
+        $type: default,
+        $size: '15px',
+        $selectedColor: #fff,
+        $checkColor: #000,
+        $valign: 'middle',
+        $rounded: rounded,
+        $border: $border2) {
+  position: absolute;
+  opacity: 0;
+  & + label {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    &:before, &:after {
+       box-sizing: border-box;
+    }
+  }
+
+  & + label:before {
+    content: '';
+    margin-right: 10px;
+    margin-bottom: 1.55px;
+    display: inline-block;
+    vertical-align: #{$valign};
+    width: #{$size};
+    height: #{$size};
+    background: #{$selectedColor};
+    border: 1px solid #{$border};
+
+
+    @if $rounded == "circle" {
+      border-radius: 50%;
+    } @else if $rounded == "rounded" {
+      border-radius: 4px;
+    } @else if $rounded == "none"{
+      margin-bottom: 0px;
+      border-radius: 0;
+    }
+  }
+
+  &:disabled + label {
+    color: #b8b8b8;
+    cursor: auto;
+  }
+
+  &:disabled + label:before {
+    box-shadow: none;
+    background: #ddd;
+  }
+
+  &:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 4px;
+    background: #{$checkColor};
+    // outline: 1px solid transparent;
+    width: 8px;
+    height: 8px;
+
+    @if $rounded == "circle" {
+      border-radius: 50%;
+    } @else if $rounded == "rounded" {
+      border-radius: 3px;
+    } @else {
+      border-radius: 0;
+    }
+
+    @if $type == "color" {
+      width: #{$size};
+      height: #{$size};
+      left: 0px;
+      top: 2px;
+    }
+  }
+
+}
+
+@mixin hover ($color,$bg:'',$hasSvg: 'false') {
+  color: #{$color} !important;
+  @if $bg == '' {
+    background: transparent;
+  } @else if $hasSvg =='true' {
+    fill: #{$color};
+  } @else {
+    background: #{$bg};
+  }
+  transition: all .45s ease;
+}

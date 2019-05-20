@@ -1,0 +1,119 @@
+footer {
+  background: $footer;
+  padding: 0 30px;
+  @include respond-below(sm) {
+    // padding: 0 30px;
+
+  }
+  @include respond-between(sm,md) {
+    padding: 0 30px;
+  }
+  @include respond-between(md,lm) {
+    padding: 0 35px;
+  }
+
+  .wrapp {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 190px;
+    padding: 45px 10px 60px 10px;
+    margin: 0 auto;
+    @include respond-below(md) {
+      flex-flow:column;
+      align-items: center;
+      padding: 35px 0 25px 0;
+      & > div {
+        margin: 7px 0;
+      }
+      .social-links {
+        align-self: initial;
+      }
+      .footer-links {
+        ul {
+          margin-bottom: 15px;
+          // flex-flow: column;
+          li {
+            a {
+              // color: #ccc;
+            }
+          }
+        }
+      }
+      .studio-logo {
+        align-self: initial;
+
+      }
+    }
+    @include respond-below(xm) {
+      .social-links {
+        order: 2;
+        margin: 30px 0;
+      }
+      .footer-links {
+        font-size: 14px;
+        order:1;
+        ul {
+          flex-flow: column;
+          margin-bottom: 0;
+        }
+        span {
+          display: none;
+        }
+      }
+      .studio-logo {
+        order: 3;
+        margin-bottom: 12px;
+        & + span {
+          display: initial;
+          order: 4;
+        }
+      }
+    }
+  }
+  .social-links {
+    display: flex;
+    align-self: flex-end;
+    svg {
+      fill: white;
+    }
+    a {
+      &:not(:last-of-type) {
+        margin-right: 35px;
+      }
+    }
+  }
+  .footer-links {
+    text-align: center;
+    ul {
+      display: flex;
+      justify-content: center;
+      flex-flow: row wrap;
+      margin-bottom: 35px;
+      li {
+        padding: 5px;
+        margin: 5px 20px;
+      }
+    }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .studio-logo {
+    align-self: flex-end;
+    & + span {
+      display: none;
+    }
+  }
+  a,svg {
+    &:hover {
+      color: $help;
+      fill: $help;
+      transition: all .5s ease;
+    }
+  }
+}

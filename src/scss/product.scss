@@ -1,0 +1,37 @@
+.product {
+  min-width: 0px;
+  max-width: 960px;
+  position: relative;
+  .wrapp {
+    position: relative;
+    display: inline-block;
+    min-width: 0px;
+    width: 960px;
+    max-height:300px;
+    // overflow: hidden;
+  }
+  &-slider {
+    &__dots {
+
+    }
+  }
+  &-info {
+    &__article {
+
+    }
+    &__price {
+
+    }
+    &__spec-list {
+      &--item {
+
+      }
+    }
+    &__available {
+
+    }
+  }
+  &-controls {
+
+  }
+}

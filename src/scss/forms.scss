@@ -1,0 +1,185 @@
+form {
+  position: relative;
+  &.search-form {
+    width: 100%;
+    max-width: 245px;
+  }
+}
+
+.search-group {
+  position: relative;
+  input {
+    &[type=search] {
+      width: 100%;
+      min-width: 160px;
+      max-width: 245px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid $border2;
+      color: $help;
+      font-family: $mainFont;
+      font-size: 14px;
+      padding: 5px 25px 5px 10px;
+      outline: none;
+      appearance: none;
+      -webkit-appearance:none;
+      & + button {
+        background: transparent;
+        border: none;
+        outline: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        width: 30px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        svg {
+          fill: #c1c5d8;
+        }
+      }
+    }
+  }
+  @include respond-below(sm) {
+    input[type=search] {
+      position: relative;
+      min-width: 0;
+      width: 30px;
+      cursor: pointer;
+      z-index: 1;
+      border: 1px solid $border2;
+      border-radius: 35px;
+      transition: all .5s ease;
+      + button {
+        transition: all .5s ease;
+        left: 2px;
+        svg {
+        }
+      }
+      &::placeholder {
+        color: transparent;
+      }
+      &:focus,&:focus-within {
+        z-index: 0;
+        width: 100%;
+        cursor: initial;
+        min-width: 160px;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid $border2;
+        + button {
+          z-index: 1;
+          left: auto;
+          right: 0px;
+          transition: all .5s ease;
+        }
+      }
+      &:hover {
+        // background: #eaeaea;
+      }
+    }
+  }
+  @include respond-below(xm) {
+    input[type=search] {
+      border: none;
+      border-radius: 0;
+      pointer-events: none;
+    }
+  }
+
+  input[type="search"]::-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px white inset;
+    -webkit-text-fill-color: #333;
+}
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    appearance: none;
+  }
+  input[type="search"]:focus::-webkit-input-placeholder { color:transparent; }
+  input[type="search"]:focus::-moz-placeholder { color:transparent; }
+  input[type="search"]:focus::-moz-placeholder { color:transparent; }
+  input[type="search"]:focus::-moz-placeholder { color:transparent; }
+  input[type="search"]:focus::-ms-input-placeholder { color:transparent; }
+}
+
+
+.price-range-group {
+  margin-top: 25px;
+  &__label {
+    display: inline-block;
+    margin: 10px 0;
+  }
+  &__input {
+    max-width: 250px;
+    margin-bottom: 15px;
+    input {
+      padding: 4px;
+      display: inline-block;
+      color: #000;
+      width: 47%;
+      margin-bottom: 2.5px;
+      outline: none;
+      background: transparent;
+      border: 1px solid $border2;
+      &:first-of-type {
+        margin-right: 4%;
+      }
+    }
+
+  }
+  input[type="number"]::-webkit-search-decoration,
+  input[type="number"]::-webkit-search-cancel-button,
+  input[type="number"]::-webkit-search-results-button,
+  input[type="number"]::-webkit-search-results-decoration {
+    appearance: none;
+  }
+  input[type="number"]:focus::-webkit-input-placeholder { color:transparent; }
+  input[type="number"]:focus::-moz-placeholder { color:transparent; }
+  input[type="number"]:focus::-moz-placeholder { color:transparent; }
+  input[type="number"]:focus::-moz-placeholder { color:transparent; }
+  input[type="number"]:focus::-ms-input-placeholder { color:transparent; }
+
+  input[type='number'] {
+    -moz-appearance:textfield;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+  }
+}
+
+.quantity-control {
+  &__select {
+    position: relative;
+    select {
+      min-width: 35px;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      pointer-events: none;
+      @include triangle-link($dr:left,$bg: #000, $bw: 3.5px 6.1px 3.5px 0);
+      left: initial;
+      right: 5px;
+      transform: translate(-50%,-50%) rotate(-90deg);
+    }
+
+  }
+  select::-ms-expand {
+    display: none;
+  }
+}
